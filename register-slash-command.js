@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { REST, Routes } from "discord.js";
+import { REST, Routes, ApplicationCommandOptionType } from "discord.js";
 
 const commands = [
   {
@@ -9,6 +9,35 @@ const commands = [
   {
     name: "ping",
     description: "Replies with Pong!",
+  },
+  {
+    name: "add",
+    description: "Add two numbers",
+    options: [
+      {
+        name: "first-number",
+        description: "Enter first number",
+        type: ApplicationCommandOptionType.Number,
+        //choices are the options available for that option, and can only select from that choices only
+        choices: [
+          {
+            name: "one",
+            value: 1, //data type of value needs to match type of option
+          },
+          {
+            name: "two",
+            value: 2,
+          },
+        ],
+        required: true,
+      },
+      {
+        name: "second-number",
+        description: "Enter second number",
+        type: ApplicationCommandOptionType.Number,
+        required: true,
+      },
+    ],
   },
 ];
 

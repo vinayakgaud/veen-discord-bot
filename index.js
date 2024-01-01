@@ -31,6 +31,12 @@ client.on("interactionCreate", (interaction) => {
   if (interaction.commandName === "ping") interaction.reply("Pong!");
   if (interaction.commandName === "help")
     interaction.reply("This is manual for veen bot");
+  if (interaction.commandName === "add") {
+    const num1 = interaction.options.get("first-number").value; //we are getting value from the obj we got using get function, we would have used ? after get function if we had required false
+    const num2 = interaction.options.get("second-number").value;
+
+    interaction.reply(`The sum is : ${num1 + num2}`);
+  }
 });
 
 client.login(process.env.TOKEN);
