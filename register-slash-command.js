@@ -3,6 +3,10 @@ import { REST, Routes, ApplicationCommandOptionType } from "discord.js";
 
 const commands = [
   {
+    name: "welcome-embed",
+    description: "Welcomes people",
+  },
+  {
     name: "help",
     description: "Documentation for VEEN bot",
   },
@@ -11,30 +15,33 @@ const commands = [
     description: "Replies with Pong!",
   },
   {
-    name: "add",
-    description: "Add two numbers",
+    name: "custom-greet",
+    description: "Custom Hello message",
     options: [
       {
-        name: "first-number",
-        description: "Enter first number",
-        type: ApplicationCommandOptionType.Number,
-        //choices are the options available for that option, and can only select from that choices only
+        name: "greet",
+        description: "Choose the greetings",
+        type: ApplicationCommandOptionType.String,
+        required: true,
         choices: [
           {
-            name: "one",
-            value: 1, //data type of value needs to match type of option
+            name: "hello",
+            value: "Hello",
           },
           {
-            name: "two",
-            value: 2,
+            name: "hi",
+            value: "Hi",
+          },
+          {
+            name: "yo",
+            value: "Yo",
           },
         ],
-        required: true,
       },
       {
-        name: "second-number",
-        description: "Enter second number",
-        type: ApplicationCommandOptionType.Number,
+        name: "username",
+        description: "Enter your name",
+        type: ApplicationCommandOptionType.String,
         required: true,
       },
     ],
