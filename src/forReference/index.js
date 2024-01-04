@@ -4,6 +4,7 @@ import {
   GatewayIntentBits,
   EmbedBuilder,
   GuildMember,
+  ActivityType,
 } from "discord.js";
 
 const client = new Client({
@@ -16,6 +17,10 @@ const client = new Client({
 
 client.on("ready", (c) => {
   console.log(`✅ ${c.user.tag} is online`);
+  client.user.setActivity({
+    name: "life burn 🔥", //default activity is playing
+    type: ActivityType.Watching,
+  });
 });
 
 client.on("messageCreate", (message) => {
